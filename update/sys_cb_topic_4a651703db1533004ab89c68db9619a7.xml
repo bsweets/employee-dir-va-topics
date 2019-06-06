@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="INSERT_OR_UPDATE">
+        <applicability/>
+        <connect_queue/>
+        <description/>
+        <graph>{
+  "graph_api_version": "1.0.10",
+  "goals": {
+    "d90a0062a257445fbe3f75b5ba09f62a": {
+      "id": "d90a0062a257445fbe3f75b5ba09f62a",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "132f8e6868fa467ebc3a3df0c6bd5cc6": {
+          "id": "132f8e6868fa467ebc3a3df0c6bd5cc6",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "f3c22bf43dd745a8910ede7fbfe024f0": {
+          "id": "f3c22bf43dd745a8910ede7fbfe024f0",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "f571b258d38d4676a9d4633aa03114a0": {
+          "id": "f571b258d38d4676a9d4633aa03114a0",
+          "stepType": "Prompt",
+          "name": "User Text Input",
+          "prompt": {
+            "value": "What do you want to search for?",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "optional": false,
+          "defaultValue": {
+            "value": "My Default",
+            "mode": "simple"
+          },
+          "variableId": "b04a065a55f24ee5bf8b79bd87271406"
+        }
+      },
+      "edges": [
+        {
+          "id": "b17cd4f28b2c433ebf72c7f64c905a7e",
+          "edgeType": "Edge",
+          "source": "132f8e6868fa467ebc3a3df0c6bd5cc6",
+          "target": "f571b258d38d4676a9d4633aa03114a0",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "af12a7afbd894f77a41331b2fb2f0945",
+          "edgeType": "Edge",
+          "source": "f571b258d38d4676a9d4633aa03114a0",
+          "target": "f3c22bf43dd745a8910ede7fbfe024f0",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "b04a065a55f24ee5bf8b79bd87271406": {
+      "id": "b04a065a55f24ee5bf8b79bd87271406",
+      "name": "user_text_input",
+      "label": "User Text Input",
+      "varType": "string",
+      "category": "vaInputs"
+    },
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    }
+  }
+}</graph>
+        <key_phrases>Testing VA</key_phrases>
+        <live_agent>false</live_agent>
+        <name>Testing VA</name>
+        <roles/>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-05-13 17:19:57</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>4a651703db1533004ab89c68db9619a7</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Testing VA</sys_name>
+        <sys_package display_value="Employee Directory Virtual Agent Conversations" source="x_126321_empdirva">e8a67563db0133004ab89c68db9619a0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Directory Virtual Agent Conversations">e8a67563db0133004ab89c68db9619a0</sys_scope>
+        <sys_update_name>sys_cb_topic_4a651703db1533004ab89c68db9619a7</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-05-13 17:21:14</sys_updated_on>
+        <variables/>
+    </sys_cb_topic>
+    <sys_variable_value action="delete_multiple" query="document_key=4a651703db1533004ab89c68db9619a7"/>
+</record_update>

@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="INSERT_OR_UPDATE">
+        <applicability/>
+        <connect_queue/>
+        <description>A topic flow to allow users to update their personal contact information</description>
+        <graph>{
+  "graph_api_version": "1.0.10",
+  "goals": {
+    "5b68f641b0d649cd9cdd6e5f934c16d1": {
+      "id": "5b68f641b0d649cd9cdd6e5f934c16d1",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "9c069da9a82b4099ba05271fe24b82b4": {
+          "id": "9c069da9a82b4099ba05271fe24b82b4",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "b98604a43db64d6e981e452459e2f668": {
+          "id": "b98604a43db64d6e981e452459e2f668",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "ba600b6ccdfc4a339afc61e22e5d69b8": {
+          "stepType": "ChoicePrompt",
+          "name": "Field to update",
+          "prompt": {
+            "value": "What contact details do you need to update?",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "optional": false,
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "efd2e3a1749642c6929d19c2ca5ca5a7",
+          "id": "ba600b6ccdfc4a339afc61e22e5d69b8"
+        },
+        "9b7ef3238cc6484583cb539098ac9ef4": {
+          "id": "9b7ef3238cc6484583cb539098ac9ef4",
+          "stepType": "Decision",
+          "name": "What to update"
+        },
+        "f82d20b7fdb9429187f3c86c725614ff": {
+          "id": "f82d20b7fdb9429187f3c86c725614ff",
+          "stepType": "ImplicitEnd"
+        },
+        "fed6427d54974fefb77ba1facf21dabb": {
+          "id": "fed6427d54974fefb77ba1facf21dabb",
+          "stepType": "ImplicitEnd"
+        },
+        "ee946fc676ac4efa9d97fe94fd26c236": {
+          "id": "ee946fc676ac4efa9d97fe94fd26c236",
+          "stepType": "Prompt",
+          "name": "New business phone",
+          "prompt": {
+            "value": "What is your new business phone number?",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "Got it. Give me a moment to update your number.",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "optional": false,
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "84729883377443658fda42f2dd0cb2be"
+        },
+        "3b6c3abb76b84f09abe0c9885408b887": {
+          "id": "3b6c3abb76b84f09abe0c9885408b887",
+          "stepType": "Prompt",
+          "name": "New mobile phone",
+          "prompt": {
+            "value": "What is your new mobile phone number?",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "Got it. Give me a moment to update your number.",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "optional": false,
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "14f74096961645318688d94ad08d1b85"
+        },
+        "f4ff919c6d714b3dbc96e0aa8d2ecbba": {
+          "stepType": "ReferenceChoicePrompt",
+          "name": "New location",
+          "prompt": {
+            "value": "Where are you now located?",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "Got it. Give me a moment to update your location.",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "optional": false,
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "017286b24be046299368c5e14bac9b00",
+          "id": "f4ff919c6d714b3dbc96e0aa8d2ecbba",
+          "mode": "glide_record",
+          "script": "",
+          "noRecordsResponseMsg": {
+            "value": "No locations are available to select. I cannot help at this time.",
+            "mode": "simple"
+          },
+          "condition": {
+            "mode": "glide_query",
+            "value": "company={{vaInputs.user.company}}"
+          }
+        }
+      },
+      "edges": [
+        {
+          "id": "cb2485073581429db0d4c279869e3978",
+          "edgeType": "Edge",
+          "source": "9c069da9a82b4099ba05271fe24b82b4",
+          "target": "ba600b6ccdfc4a339afc61e22e5d69b8",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "c661bee0b469403486baf3bef72ba5e2",
+          "edgeType": "Edge",
+          "source": "ba600b6ccdfc4a339afc61e22e5d69b8",
+          "target": "9b7ef3238cc6484583cb539098ac9ef4",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "1b03aa2ebbcd4479a2cbdb6f9a684cd2",
+          "edgeType": "Branch",
+          "source": "9b7ef3238cc6484583cb539098ac9ef4",
+          "target": "ee946fc676ac4efa9d97fe94fd26c236",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "field_to_update=business_phone",
+            "mode": "query"
+          },
+          "label": "Business phone"
+        },
+        {
+          "id": "3b5c12f3592742ae96c6c12e7e9187c5",
+          "edgeType": "Edge",
+          "source": "ee946fc676ac4efa9d97fe94fd26c236",
+          "target": "b98604a43db64d6e981e452459e2f668",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "4ade8195dc6548aab625624ceb4864ff",
+          "edgeType": "Branch",
+          "source": "9b7ef3238cc6484583cb539098ac9ef4",
+          "target": "3b6c3abb76b84f09abe0c9885408b887",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "field_to_update=mobile_phone",
+            "mode": "query"
+          },
+          "label": "Mobile phone"
+        },
+        {
+          "id": "55c41be7f3e64e69b65ed5bd9a815b2a",
+          "edgeType": "Edge",
+          "source": "3b6c3abb76b84f09abe0c9885408b887",
+          "target": "f82d20b7fdb9429187f3c86c725614ff",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "c0fc9c4fd21048d6b477526dd2cf1c8b",
+          "edgeType": "Branch",
+          "source": "9b7ef3238cc6484583cb539098ac9ef4",
+          "target": "f4ff919c6d714b3dbc96e0aa8d2ecbba",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "field_to_update=location",
+            "mode": "query"
+          },
+          "label": "Location"
+        },
+        {
+          "id": "a7a32da5f02c4f9abca3fabb685e9755",
+          "edgeType": "Edge",
+          "source": "f4ff919c6d714b3dbc96e0aa8d2ecbba",
+          "target": "fed6427d54974fefb77ba1facf21dabb",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "efd2e3a1749642c6929d19c2ca5ca5a7": {
+      "id": "efd2e3a1749642c6929d19c2ca5ca5a7",
+      "name": "field_to_update",
+      "label": "Field To Update",
+      "varType": "choice",
+      "choices": [
+        {
+          "label": "Business phone",
+          "value": "business_phone"
+        },
+        {
+          "label": "Mobile phone",
+          "value": "mobile_phone"
+        },
+        {
+          "label": "Location",
+          "value": "location"
+        }
+      ],
+      "category": "vaInputs"
+    },
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "84729883377443658fda42f2dd0cb2be": {
+      "id": "84729883377443658fda42f2dd0cb2be",
+      "name": "new_business_phone",
+      "label": "New Business Phone",
+      "varType": "string",
+      "category": "vaInputs"
+    },
+    "14f74096961645318688d94ad08d1b85": {
+      "id": "14f74096961645318688d94ad08d1b85",
+      "name": "new_mobile_phone",
+      "label": "New Mobile Phone",
+      "varType": "string",
+      "category": "vaInputs"
+    },
+    "017286b24be046299368c5e14bac9b00": {
+      "id": "017286b24be046299368c5e14bac9b00",
+      "name": "new_location",
+      "label": "New Location",
+      "varType": "reference",
+      "table": "cmn_location",
+      "category": "vaInputs"
+    }
+  }
+}</graph>
+        <key_phrases>Update Contact Information,phone number,location,business phone,mobile phone</key_phrases>
+        <live_agent>false</live_agent>
+        <name>Update Contact Information</name>
+        <roles/>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-05-24 14:09:20</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>894393a6dba933004ab89c68db9619b6</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Update Contact Information</sys_name>
+        <sys_package display_value="Employee Directory Virtual Agent Conversations" source="x_126321_empdirva">e8a67563db0133004ab89c68db9619a0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Directory Virtual Agent Conversations">e8a67563db0133004ab89c68db9619a0</sys_scope>
+        <sys_update_name>sys_cb_topic_894393a6dba933004ab89c68db9619b6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-05-24 14:17:08</sys_updated_on>
+        <variables/>
+    </sys_cb_topic>
+    <sys_variable_value action="delete_multiple" query="document_key=894393a6dba933004ab89c68db9619b6"/>
+</record_update>

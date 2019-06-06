@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="INSERT_OR_UPDATE">
+        <applicability/>
+        <connect_queue/>
+        <description/>
+        <graph>{
+  "goals": {
+    "a4933bf568194064b890d5514d6f16e8": {
+      "id": "a4933bf568194064b890d5514d6f16e8",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "240aebb81783435996639048a8f75267": {
+          "id": "240aebb81783435996639048a8f75267",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "value": "I can help you find employees in the company directory.",
+            "mode": "simple"
+          }
+        },
+        "415dd41b30e4444d853bb62554460c80": {
+          "id": "415dd41b30e4444d853bb62554460c80",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "value": "Thanks for talking with me.",
+            "mode": "simple"
+          }
+        },
+        "29ea51a076c8422eaf069a7371b7d2ac": {
+          "id": "29ea51a076c8422eaf069a7371b7d2ac",
+          "stepType": "Prompt",
+          "name": "Employee name",
+          "prompt": {
+            "value": "Who are you looking for?",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "Got it. Let me take a look.",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "optional": false,
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "187992f05df240a1b17d27414157f365"
+        },
+        "1fdcb011174d44a3887adedd4a9c7020": {
+          "stepType": "ReferenceChoicePrompt",
+          "name": "List employees",
+          "prompt": {
+            "value": "Your search of {{vaInputs.employee_name}}had multiple results. Which of these employees are you trying to find?",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "Here are the employee details.",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "optional": false,
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "19ac5fa2364b4f48884600fb556dc040",
+          "id": "1fdcb011174d44a3887adedd4a9c7020",
+          "mode": "glide_record",
+          "script": "",
+          "noRecordsResponseMsg": {
+            "value": "No records match your search criteria.",
+            "mode": "simple"
+          },
+          "condition": {
+            "mode": "glide_query",
+            "value": "nameLIKE{{vaInputs.employee_name}}"
+          }
+        },
+        "6e11d7a642184b91b4c01de5efe3cbea": {
+          "id": "6e11d7a642184b91b4c01de5efe3cbea",
+          "stepType": "RecordOutput",
+          "name": "Show User",
+          "variableId": "19ac5fa2364b4f48884600fb556dc040",
+          "mode": "variable",
+          "tableName": "sys_user",
+          "fields": [
+            "user_name",
+            "name",
+            "email",
+            "phone",
+            "mobile_phone"
+          ],
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "condition": {
+            "mode": "variable",
+            "value": ""
+          }
+        },
+        "19472ee3343f4ef3a1bd2b860ab2b021": {
+          "id": "19472ee3343f4ef3a1bd2b860ab2b021",
+          "stepType": "Decision",
+          "name": "Look up another employee?"
+        },
+        "8845291096dc453abc97ed7e204fee90": {
+          "stepType": "ChoicePrompt",
+          "name": "Select job",
+          "prompt": {
+            "value": "Which job should the child do?",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "optional": false,
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "64751c5e60d34391b71f704e826b3b76",
+          "id": "8845291096dc453abc97ed7e204fee90"
+        },
+        "c2314d32c3b4495f979732f4975129cb": {
+          "id": "c2314d32c3b4495f979732f4975129cb",
+          "stepType": "Decision",
+          "name": "Selected job"
+        },
+        "c974a2a5b90d4114b2ed4f8f97bde0c2": {
+          "id": "c974a2a5b90d4114b2ed4f8f97bde0c2",
+          "stepType": "ImplicitEnd"
+        },
+        "508793a9df7f41ac83aca9b523437acc": {
+          "id": "508793a9df7f41ac83aca9b523437acc",
+          "stepType": "ImplicitEnd"
+        },
+        "80caec13a0f94ede9f84299aea66209d": {
+          "id": "80caec13a0f94ede9f84299aea66209d",
+          "stepType": "Prompt",
+          "name": "Another lookup",
+          "prompt": {
+            "value": "Would you like to look up another employee?",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "optional": false,
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "1f3f4594f282439da6bce48232344835"
+        },
+        "11a25663c3c547b5970368dfb96481e1": {
+          "id": "11a25663c3c547b5970368dfb96481e1",
+          "stepType": "ImplicitEnd"
+        }
+      },
+      "edges": [
+        {
+          "id": "98839277566b4ee28958ffab384f8b95",
+          "edgeType": "Edge",
+          "source": "6e11d7a642184b91b4c01de5efe3cbea",
+          "target": "8845291096dc453abc97ed7e204fee90",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "8c307f972f144ecf9bc44bd9c9434353",
+          "edgeType": "Branch",
+          "source": "19472ee3343f4ef3a1bd2b860ab2b021",
+          "target": "415dd41b30e4444d853bb62554460c80",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "another_lookup=",
+            "mode": "query"
+          },
+          "label": "No"
+        },
+        {
+          "id": "87a377b8d0854438ba6a3599ffe25daa",
+          "edgeType": "Edge",
+          "source": "1fdcb011174d44a3887adedd4a9c7020",
+          "target": "6e11d7a642184b91b4c01de5efe3cbea",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "467ed569bd4b43d387cb998b5512e53b",
+          "edgeType": "Edge",
+          "source": "240aebb81783435996639048a8f75267",
+          "target": "29ea51a076c8422eaf069a7371b7d2ac",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "63b803a13ca64cba95b135f0d508d6e4",
+          "edgeType": "Edge",
+          "source": "29ea51a076c8422eaf069a7371b7d2ac",
+          "target": "1fdcb011174d44a3887adedd4a9c7020",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "bc17d6c82a63425ea0d93a1f1baafe64",
+          "edgeType": "Edge",
+          "source": "8845291096dc453abc97ed7e204fee90",
+          "target": "c2314d32c3b4495f979732f4975129cb",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "a8aa447b2d8c4822a9e559bf1b4a5c24",
+          "edgeType": "Branch",
+          "source": "c2314d32c3b4495f979732f4975129cb",
+          "target": "c974a2a5b90d4114b2ed4f8f97bde0c2",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "select_job=garbage",
+            "mode": "query"
+          },
+          "label": "Take out the garbage"
+        },
+        {
+          "id": "5a1d502e61fb425b96a59479cb74c2a9",
+          "edgeType": "Branch",
+          "source": "c2314d32c3b4495f979732f4975129cb",
+          "target": "508793a9df7f41ac83aca9b523437acc",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "select_job=laundry",
+            "mode": "query"
+          },
+          "label": "Fold laundry"
+        },
+        {
+          "id": "424f8c58236a4f02aab6f52f739fda4a",
+          "edgeType": "Branch",
+          "source": "c2314d32c3b4495f979732f4975129cb",
+          "target": "80caec13a0f94ede9f84299aea66209d",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "select_job=dishes",
+            "mode": "query"
+          },
+          "label": "Wash dishes"
+        },
+        {
+          "id": "79e7d2eeaa1e433ab45cad6db269df95",
+          "edgeType": "Edge",
+          "source": "80caec13a0f94ede9f84299aea66209d",
+          "target": "19472ee3343f4ef3a1bd2b860ab2b021",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "0dbf0329e39c49db843e166dda2eda72",
+          "edgeType": "Branch",
+          "source": "19472ee3343f4ef3a1bd2b860ab2b021",
+          "target": "11a25663c3c547b5970368dfb96481e1",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "query",
+            "value": ""
+          },
+          "label": "Always"
+        }
+      ]
+    }
+  },
+  "graph_api_version": "1.0.10",
+  "variables": {
+    "20cdb394139242008f8fb96ace0e4213": {
+      "category": "vaInputs",
+      "id": "20cdb394139242008f8fb96ace0e4213",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "187992f05df240a1b17d27414157f365": {
+      "id": "187992f05df240a1b17d27414157f365",
+      "name": "employee_name",
+      "label": "Employee Name",
+      "varType": "string",
+      "category": "vaInputs"
+    },
+    "19ac5fa2364b4f48884600fb556dc040": {
+      "id": "19ac5fa2364b4f48884600fb556dc040",
+      "name": "list_employees",
+      "label": "List Employees",
+      "varType": "reference",
+      "table": "sys_user",
+      "category": "vaInputs"
+    },
+    "1f3f4594f282439da6bce48232344835": {
+      "id": "1f3f4594f282439da6bce48232344835",
+      "name": "another_lookup",
+      "label": "Another Lookup",
+      "varType": "boolean",
+      "category": "vaInputs"
+    },
+    "64751c5e60d34391b71f704e826b3b76": {
+      "id": "64751c5e60d34391b71f704e826b3b76",
+      "name": "select_job",
+      "label": "Select Job",
+      "varType": "choice",
+      "choices": [
+        {
+          "label": "Wash dishes",
+          "value": "dishes"
+        },
+        {
+          "label": "Fold laundry",
+          "value": "laundry"
+        },
+        {
+          "label": "Take out the garbage",
+          "value": "garbage"
+        }
+      ],
+      "category": "vaInputs"
+    }
+  }
+}</graph>
+        <key_phrases>Find Employee,employee directory,view employee details,find user,user directory</key_phrases>
+        <live_agent>false</live_agent>
+        <name>Job selection</name>
+        <roles/>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-05-23 13:44:51</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>ec14ca56db2133004ab89c68db9619f6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Job selection</sys_name>
+        <sys_package display_value="Employee Directory Virtual Agent Conversations" source="x_126321_empdirva">e8a67563db0133004ab89c68db9619a0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Directory Virtual Agent Conversations">e8a67563db0133004ab89c68db9619a0</sys_scope>
+        <sys_update_name>sys_cb_topic_ec14ca56db2133004ab89c68db9619f6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-05-23 13:44:51</sys_updated_on>
+        <variables/>
+    </sys_cb_topic>
+    <sys_variable_value action="delete_multiple" query="document_key=ec14ca56db2133004ab89c68db9619f6"/>
+</record_update>

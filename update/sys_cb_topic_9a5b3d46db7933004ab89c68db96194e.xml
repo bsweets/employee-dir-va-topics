@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="INSERT_OR_UPDATE">
+        <applicability/>
+        <connect_queue/>
+        <description/>
+        <graph>{
+  "graph_api_version": "1.0.10",
+  "goals": {
+    "44d03ebe1c094c06913d3e7ceca9621b": {
+      "id": "44d03ebe1c094c06913d3e7ceca9621b",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "0b782fd08a084ffe901b6929ea64868b": {
+          "id": "0b782fd08a084ffe901b6929ea64868b",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "86fd01ed884b4f68899e4b5683565d6e": {
+          "id": "86fd01ed884b4f68899e4b5683565d6e",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "3713d09e78bd48479c85f3d6ebc9852c": {
+          "stepType": "ChoicePrompt",
+          "name": "Select job",
+          "prompt": {
+            "value": "Which job?",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "optional": false,
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "ec22089b5a064eb0a7cf76fe65c292f1",
+          "id": "3713d09e78bd48479c85f3d6ebc9852c"
+        },
+        "81e91e99598c48d3ac9291baaaa44fca": {
+          "id": "81e91e99598c48d3ac9291baaaa44fca",
+          "stepType": "Decision",
+          "name": "Job selected"
+        },
+        "9c7ee7153ba348f6acc926a8e8824ccf": {
+          "id": "9c7ee7153ba348f6acc926a8e8824ccf",
+          "stepType": "ImplicitEnd"
+        },
+        "26a0410cc1e64dd19eae2d40914725f1": {
+          "id": "26a0410cc1e64dd19eae2d40914725f1",
+          "stepType": "ImplicitEnd"
+        }
+      },
+      "edges": [
+        {
+          "id": "6959a6f172e049018f60e314a0b21a17",
+          "edgeType": "Edge",
+          "source": "0b782fd08a084ffe901b6929ea64868b",
+          "target": "3713d09e78bd48479c85f3d6ebc9852c",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "894543bcc17b4049b746bb82b942511e",
+          "edgeType": "Edge",
+          "source": "3713d09e78bd48479c85f3d6ebc9852c",
+          "target": "81e91e99598c48d3ac9291baaaa44fca",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "2c04abc57297451da0b2e0a67ae6229c",
+          "edgeType": "Branch",
+          "source": "81e91e99598c48d3ac9291baaaa44fca",
+          "target": "86fd01ed884b4f68899e4b5683565d6e",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "",
+            "mode": "query"
+          },
+          "label": "Wash dishes"
+        },
+        {
+          "id": "aca1a11b52314762b1053020c6d26dd4",
+          "edgeType": "Branch",
+          "source": "81e91e99598c48d3ac9291baaaa44fca",
+          "target": "9c7ee7153ba348f6acc926a8e8824ccf",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "query",
+            "value": ""
+          },
+          "label": "Fold Laundry"
+        },
+        {
+          "id": "71b8e3d771084aa18bcd192a0af76757",
+          "edgeType": "Branch",
+          "source": "81e91e99598c48d3ac9291baaaa44fca",
+          "target": "26a0410cc1e64dd19eae2d40914725f1",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "query",
+            "value": ""
+          },
+          "label": "Take out the garbage"
+        }
+      ]
+    }
+  },
+  "variables": {
+    "ec22089b5a064eb0a7cf76fe65c292f1": {
+      "id": "ec22089b5a064eb0a7cf76fe65c292f1",
+      "name": "select_job",
+      "label": "Select Job",
+      "varType": "choice",
+      "choices": [
+        {
+          "label": "Wash dishes",
+          "value": "dishes"
+        }
+      ],
+      "category": "vaInputs"
+    },
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    }
+  }
+}</graph>
+        <key_phrases>Chores</key_phrases>
+        <live_agent>false</live_agent>
+        <name>Chores</name>
+        <roles/>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-06-04 04:43:57</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>9a5b3d46db7933004ab89c68db96194e</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Chores</sys_name>
+        <sys_package display_value="Employee Directory Virtual Agent Conversations" source="x_126321_empdirva">e8a67563db0133004ab89c68db9619a0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Directory Virtual Agent Conversations">e8a67563db0133004ab89c68db9619a0</sys_scope>
+        <sys_update_name>sys_cb_topic_9a5b3d46db7933004ab89c68db96194e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-06-04 04:45:47</sys_updated_on>
+        <variables/>
+    </sys_cb_topic>
+    <sys_variable_value action="delete_multiple" query="document_key=9a5b3d46db7933004ab89c68db96194e"/>
+</record_update>
