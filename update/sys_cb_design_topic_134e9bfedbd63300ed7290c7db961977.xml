@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_design_topic">
+    <sys_cb_design_topic action="INSERT_OR_UPDATE">
+        <compiled_topic display_value="_PRVW__5f4e9bfefed63300cebb4db613c33d73">5b4e9bfedbd63300ed7290c7db961974</compiled_topic>
+        <design_definition>{"type":"FlowTopic","triggers":[{"type":"Trigger","name":"8535f6b85fe24f019cb871718c3ecc59","triggerType":"request","applicability":{"type":"Applicability","mode":"script","value":"true"},"id":"8535f6b85fe24f019cb871718c3ecc59"}],"goals":[{"name":"primary","trigger_id":"8535f6b85fe24f019cb871718c3ecc59","nodes":[{"type":"StartGoal","goal_id":"fb24d7725ceb462d9b0338727482716e","greeting_msg":{"type":"String","mode":"string","value":""},"id":"4c5aa26dc5ab4197ac68c498ff8e50ab","name":"Start"},{"type":"TerminateGoal","goal_id":"fb24d7725ceb462d9b0338727482716e","confirmation_msg":{"type":"String","mode":"string","value":""},"id":"d51e4cb7a03740818dc5a8eb60243e81","name":"End"},{"type":"ChoiceInputPrompt","expression_mode":"simple","id":"c414e56fb0b24a5bb3015ca8ca4b8f20","name":"Preferred Language","goal_id":"fb24d7725ceb462d9b0338727482716e","applicability":{"type":"Applicability","mode":"script","value":"true"},"variable_id":"450d9bfc77b84dcc876d49d1a1c155a3","message":{"type":"String","mode":"string","value":"What is your preferred language?"},"optional":false,"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":false}},{"type":"OutputPrompt","value":{"type":"String","mode":"script","value":"    (function execute() {\n    \n        return 'The selected language is ' + vaInputs.preferred_language.getDisplayValue() + '. The language code is ' + vaInputs.preferred_language.getValue() + '.';\n    \n    })()"},"id":"ddc12201b9874561aa2f329a693a442d","name":"Confirm Language","goal_id":"fb24d7725ceb462d9b0338727482716e","applicability":{"type":"Applicability","mode":"script","value":"true"}}],"edges":[{"type":"Edge","source_node_id":"4c5aa26dc5ab4197ac68c498ff8e50ab","target_node_id":"c414e56fb0b24a5bb3015ca8ca4b8f20","id":"26da1459ef1d4505bafd5b31116d4fff"},{"type":"Edge","source_node_id":"c414e56fb0b24a5bb3015ca8ca4b8f20","target_node_id":"ddc12201b9874561aa2f329a693a442d","id":"1d976a81d2d9479fa0095ca7b4bcb915"},{"type":"Edge","source_node_id":"ddc12201b9874561aa2f329a693a442d","target_node_id":"d51e4cb7a03740818dc5a8eb60243e81","id":"f9546bb9e3cc477e83b88f98c5013c36"}],"id":"fb24d7725ceb462d9b0338727482716e"}],"script_variables":[],"glide_variables":[{"type":"Choice","choices":[{"name":"English","element":"en"},{"name":"Spanish","element":"es"},{"name":"Chinese","element":"zh"},{"name":"Hindi","element":"hi"}],"id":"450d9bfc77b84dcc876d49d1a1c155a3","name":"preferred_language"},{"type":"Reference","table":"sys_user","id":"current-user","name":"user"}],"applicability":{"type":"Applicability","mode":"script","value":"true"},"roles":[],"scope":"e8a67563db0133004ab89c68db9619a0","id":"99dd5f76db1a3300ed7290c7db961926","name":"_PRVW__5f4e9bfefed63300cebb4db613c33d73","key_phrases":["Preferred language"],"nlu_provider":"","nlu_model":"","nlu_intent":"","flexible_conversation_switching":false,"design_category":"023ee76ddb5a3300ed7290c7db9619eb"}</design_definition>
+        <design_topic_id>99dd5f76db1a3300ed7290c7db961926</design_topic_id>
+        <name>_PRVW__5f4e9bfefed63300cebb4db613c33d73</name>
+        <sys_class_name>sys_cb_design_topic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-07-01 16:23:06</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>134e9bfedbd63300ed7290c7db961977</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>FlowTopic</sys_name>
+        <sys_package display_value="Employee Directory Virtual Agent Conversations" source="x_126321_empdirva">e8a67563db0133004ab89c68db9619a0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Directory Virtual Agent Conversations">e8a67563db0133004ab89c68db9619a0</sys_scope>
+        <sys_update_name>sys_cb_design_topic_134e9bfedbd63300ed7290c7db961977</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-07-01 16:23:06</sys_updated_on>
+        <type>FlowTopic</type>
+    </sys_cb_design_topic>
+</record_update>

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
     <sys_cb_topic action="INSERT_OR_UPDATE">
         <applicability/>
-        <category/>
+        <category display_value="Employee Directory Topics">023ee76ddb5a3300ed7290c7db9619eb</category>
         <connect_queue/>
         <description/>
         <flexible_conversation_switching>false</flexible_conversation_switching>
         <graph>{
-  "graph_api_version": "1.0.10",
+  "graph_api_version": "1.0.13",
   "goals": {
-    "d90a0062a257445fbe3f75b5ba09f62a": {
-      "id": "d90a0062a257445fbe3f75b5ba09f62a",
+    "fb24d7725ceb462d9b0338727482716e": {
+      "id": "fb24d7725ceb462d9b0338727482716e",
       "trigger": {
         "type": "primary"
       },
@@ -17,8 +17,8 @@
       "applicability": "",
       "description": "",
       "nodes": {
-        "132f8e6868fa467ebc3a3df0c6bd5cc6": {
-          "id": "132f8e6868fa467ebc3a3df0c6bd5cc6",
+        "4c5aa26dc5ab4197ac68c498ff8e50ab": {
+          "id": "4c5aa26dc5ab4197ac68c498ff8e50ab",
           "stepType": "Start",
           "name": "Start",
           "greetingResponse": {
@@ -26,8 +26,8 @@
             "value": ""
           }
         },
-        "f3c22bf43dd745a8910ede7fbfe024f0": {
-          "id": "f3c22bf43dd745a8910ede7fbfe024f0",
+        "d51e4cb7a03740818dc5a8eb60243e81": {
+          "id": "d51e4cb7a03740818dc5a8eb60243e81",
           "stepType": "TerminateGoal",
           "name": "End",
           "confirmationMessage": {
@@ -35,12 +35,11 @@
             "value": ""
           }
         },
-        "f571b258d38d4676a9d4633aa03114a0": {
-          "id": "f571b258d38d4676a9d4633aa03114a0",
-          "stepType": "Prompt",
-          "name": "User Text Input",
+        "c414e56fb0b24a5bb3015ca8ca4b8f20": {
+          "stepType": "ChoicePrompt",
+          "name": "Preferred Language",
           "prompt": {
-            "value": "What do you want to search for?",
+            "value": "What is your preferred language?",
             "mode": "simple"
           },
           "confirmMessage": {
@@ -57,26 +56,30 @@
           },
           "optional": false,
           "defaultValue": {
-            "value": "My Default",
+            "value": "",
             "mode": "simple"
           },
-          "variableId": "b04a065a55f24ee5bf8b79bd87271406"
+          "variableId": "450d9bfc77b84dcc876d49d1a1c155a3",
+          "id": "c414e56fb0b24a5bb3015ca8ca4b8f20",
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "entity": ""
         }
       },
       "edges": [
         {
-          "id": "b17cd4f28b2c433ebf72c7f64c905a7e",
+          "id": "26da1459ef1d4505bafd5b31116d4fff",
           "edgeType": "Edge",
-          "source": "132f8e6868fa467ebc3a3df0c6bd5cc6",
-          "target": "f571b258d38d4676a9d4633aa03114a0",
+          "source": "4c5aa26dc5ab4197ac68c498ff8e50ab",
+          "target": "c414e56fb0b24a5bb3015ca8ca4b8f20",
           "sourcePort": "",
           "targetPort": ""
         },
         {
-          "id": "af12a7afbd894f77a41331b2fb2f0945",
+          "id": "1d976a81d2d9479fa0095ca7b4bcb915",
           "edgeType": "Edge",
-          "source": "f571b258d38d4676a9d4633aa03114a0",
-          "target": "f3c22bf43dd745a8910ede7fbfe024f0",
+          "source": "c414e56fb0b24a5bb3015ca8ca4b8f20",
+          "target": "d51e4cb7a03740818dc5a8eb60243e81",
           "sourcePort": "",
           "targetPort": ""
         }
@@ -84,44 +87,54 @@
     }
   },
   "variables": {
-    "b04a065a55f24ee5bf8b79bd87271406": {
-      "id": "b04a065a55f24ee5bf8b79bd87271406",
-      "name": "user_text_input",
-      "label": "User Text Input",
-      "varType": "string",
+    "450d9bfc77b84dcc876d49d1a1c155a3": {
+      "id": "450d9bfc77b84dcc876d49d1a1c155a3",
+      "name": "preferred_language",
+      "label": "Preferred Language",
+      "varType": "choice",
+      "choices": [
+        {
+          "label": "English",
+          "value": "en"
+        },
+        {
+          "label": "Spanish",
+          "value": "es"
+        },
+        {
+          "label": "Chinese",
+          "value": "zh"
+        },
+        {
+          "label": "Hindi",
+          "value": "hi"
+        }
+      ],
       "category": "vaInputs"
-    },
-    "current-user": {
-      "category": "vaInputs",
-      "id": "current-user",
-      "label": "User",
-      "name": "user",
-      "table": "sys_user",
-      "varType": "reference"
     }
   }
 }</graph>
-        <key_phrases>Testing VA</key_phrases>
+        <key_phrases>Preferred language</key_phrases>
         <live_agent>false</live_agent>
-        <name>Testing VA</name>
+        <name>Preferred language</name>
         <nlu_intent/>
         <nlu_model/>
         <nlu_provider/>
         <roles/>
         <sys_class_name>sys_cb_topic</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2019-05-13 17:19:57</sys_created_on>
+        <sys_created_on>2019-07-01 16:21:04</sys_created_on>
         <sys_domain>global</sys_domain>
-        <sys_id>4a651703db1533004ab89c68db9619a7</sys_id>
+        <sys_id>99dd5f76db1a3300ed7290c7db961926</sys_id>
         <sys_mod_count>1</sys_mod_count>
-        <sys_name>Testing VA</sys_name>
+        <sys_name>Preferred language</sys_name>
         <sys_package display_value="Employee Directory Virtual Agent Conversations" source="x_126321_empdirva">e8a67563db0133004ab89c68db9619a0</sys_package>
         <sys_policy/>
         <sys_scope display_value="Employee Directory Virtual Agent Conversations">e8a67563db0133004ab89c68db9619a0</sys_scope>
-        <sys_update_name>sys_cb_topic_4a651703db1533004ab89c68db9619a7</sys_update_name>
+        <sys_update_name>sys_cb_topic_99dd5f76db1a3300ed7290c7db961926</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2019-05-13 17:21:14</sys_updated_on>
+        <sys_updated_on>2019-07-01 16:22:05</sys_updated_on>
         <variables/>
     </sys_cb_topic>
-    <sys_variable_value action="delete_multiple" query="document_key=4a651703db1533004ab89c68db9619a7"/>
+    <sys_variable_value action="delete_multiple" query="document_key=99dd5f76db1a3300ed7290c7db961926"/>
 </record_update>

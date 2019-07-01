@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
     <sys_cb_topic action="INSERT_OR_UPDATE">
         <applicability/>
+        <category/>
         <connect_queue/>
         <description/>
+        <flexible_conversation_switching>false</flexible_conversation_switching>
         <graph>{
-  "graph_api_version": "1.0.10",
+  "graph_api_version": "1.0.13",
   "goals": {
     "44d03ebe1c094c06913d3e7ceca9621b": {
       "id": "44d03ebe1c094c06913d3e7ceca9621b",
@@ -58,19 +60,27 @@
             "mode": "simple"
           },
           "variableId": "ec22089b5a064eb0a7cf76fe65c292f1",
-          "id": "3713d09e78bd48479c85f3d6ebc9852c"
+          "id": "3713d09e78bd48479c85f3d6ebc9852c",
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "entity": ""
         },
         "81e91e99598c48d3ac9291baaaa44fca": {
           "id": "81e91e99598c48d3ac9291baaaa44fca",
           "stepType": "Decision",
           "name": "Job selected"
         },
-        "9c7ee7153ba348f6acc926a8e8824ccf": {
-          "id": "9c7ee7153ba348f6acc926a8e8824ccf",
-          "stepType": "ImplicitEnd"
-        },
         "26a0410cc1e64dd19eae2d40914725f1": {
           "id": "26a0410cc1e64dd19eae2d40914725f1",
+          "stepType": "ImplicitEnd"
+        },
+        "461e289355c84234af41bbde955eb365": {
+          "id": "461e289355c84234af41bbde955eb365",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "78793c6c0f71443dbc02d3e664eb8190": {
+          "id": "78793c6c0f71443dbc02d3e664eb8190",
           "stepType": "ImplicitEnd"
         }
       },
@@ -99,7 +109,7 @@
           "sourcePort": "",
           "targetPort": "",
           "expression": {
-            "value": "",
+            "value": "select_job=dishes",
             "mode": "query"
           },
           "label": "Wash dishes"
@@ -108,7 +118,7 @@
           "id": "aca1a11b52314762b1053020c6d26dd4",
           "edgeType": "Branch",
           "source": "81e91e99598c48d3ac9291baaaa44fca",
-          "target": "9c7ee7153ba348f6acc926a8e8824ccf",
+          "target": "3713d09e78bd48479c85f3d6ebc9852c",
           "sourcePort": "",
           "targetPort": "",
           "expression": {
@@ -121,7 +131,7 @@
           "id": "71b8e3d771084aa18bcd192a0af76757",
           "edgeType": "Branch",
           "source": "81e91e99598c48d3ac9291baaaa44fca",
-          "target": "26a0410cc1e64dd19eae2d40914725f1",
+          "target": "461e289355c84234af41bbde955eb365",
           "sourcePort": "",
           "targetPort": "",
           "expression": {
@@ -129,6 +139,32 @@
             "value": ""
           },
           "label": "Take out the garbage"
+        },
+        {
+          "id": "a0b1a2b6d20e43dab4b8e55d927ddad3",
+          "edgeType": "Branch",
+          "source": "461e289355c84234af41bbde955eb365",
+          "target": "26a0410cc1e64dd19eae2d40914725f1",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "",
+            "mode": "query"
+          },
+          "label": "No"
+        },
+        {
+          "id": "596f19126c664af498b511ba78b6ca97",
+          "edgeType": "Branch",
+          "source": "461e289355c84234af41bbde955eb365",
+          "target": "78793c6c0f71443dbc02d3e664eb8190",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "query",
+            "value": ""
+          },
+          "label": "Yes"
         }
       ]
     }
@@ -146,34 +182,29 @@
         }
       ],
       "category": "vaInputs"
-    },
-    "current-user": {
-      "category": "vaInputs",
-      "id": "current-user",
-      "label": "User",
-      "name": "user",
-      "table": "sys_user",
-      "varType": "reference"
     }
   }
 }</graph>
         <key_phrases>Chores</key_phrases>
         <live_agent>false</live_agent>
         <name>Chores</name>
+        <nlu_intent/>
+        <nlu_model/>
+        <nlu_provider/>
         <roles/>
         <sys_class_name>sys_cb_topic</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2019-06-04 04:43:57</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>9a5b3d46db7933004ab89c68db96194e</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>Chores</sys_name>
         <sys_package display_value="Employee Directory Virtual Agent Conversations" source="x_126321_empdirva">e8a67563db0133004ab89c68db9619a0</sys_package>
         <sys_policy/>
         <sys_scope display_value="Employee Directory Virtual Agent Conversations">e8a67563db0133004ab89c68db9619a0</sys_scope>
         <sys_update_name>sys_cb_topic_9a5b3d46db7933004ab89c68db96194e</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2019-06-04 04:45:47</sys_updated_on>
+        <sys_updated_on>2019-06-28 20:46:43</sys_updated_on>
         <variables/>
     </sys_cb_topic>
     <sys_variable_value action="delete_multiple" query="document_key=9a5b3d46db7933004ab89c68db96194e"/>

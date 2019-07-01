@@ -6,10 +6,9 @@
         <description/>
         <flexible_conversation_switching>false</flexible_conversation_switching>
         <graph>{
-  "graph_api_version": "1.0.13",
   "goals": {
-    "123977e41c764de2b530cfbeea1d3fd1": {
-      "id": "123977e41c764de2b530cfbeea1d3fd1",
+    "d1c55f521cfb4cbb9122a889c337af41": {
+      "id": "d1c55f521cfb4cbb9122a889c337af41",
       "trigger": {
         "type": "primary"
       },
@@ -17,17 +16,17 @@
       "applicability": "",
       "description": "",
       "nodes": {
-        "e21f4d7774f849ddaf1af2370d4cb80a": {
-          "id": "e21f4d7774f849ddaf1af2370d4cb80a",
+        "2db2fb09c66241798eef0ac5e79a7e59": {
+          "id": "2db2fb09c66241798eef0ac5e79a7e59",
           "stepType": "Start",
           "name": "Start",
           "greetingResponse": {
-            "value": "I can help you find employees in the company directory.",
+            "value": "",
             "mode": "simple"
           }
         },
-        "53ff3c44197e4da89fc11b8d74407b3a": {
-          "id": "53ff3c44197e4da89fc11b8d74407b3a",
+        "5769bae43ffd44529beced531d69f11d": {
+          "id": "5769bae43ffd44529beced531d69f11d",
           "stepType": "TerminateGoal",
           "name": "End",
           "confirmationMessage": {
@@ -35,12 +34,12 @@
             "mode": "simple"
           }
         },
-        "f932d029eb0f4996ae98b497ea34cfc5": {
-          "id": "f932d029eb0f4996ae98b497ea34cfc5",
+        "9d3a2276effc434d99aaaaa272daeb4c": {
+          "id": "9d3a2276effc434d99aaaaa272daeb4c",
           "stepType": "Prompt",
           "name": "Employee name",
           "prompt": {
-            "value": "Who are you looking for, {{vaInputs.user.first_name}}?",
+            "value": "Who are you looking for?",
             "mode": "simple"
           },
           "confirmMessage": {
@@ -60,12 +59,12 @@
             "value": "",
             "mode": "simple"
           },
-          "variableId": "3ab5e9c534314dbb9f29b74600358253",
+          "variableId": "a1f0964f028042b79cd72df12058816c",
           "withNluUserInput": false,
           "skipIfFulfilled": false,
           "entity": ""
         },
-        "9e763933b9984b48a8c59e49a3b570cc": {
+        "037217365e0b4073abbb5c5e5f98aceb": {
           "stepType": "ReferenceChoicePrompt",
           "name": "List employees",
           "prompt": {
@@ -73,8 +72,8 @@
             "mode": "simple"
           },
           "confirmMessage": {
-            "value": "",
-            "mode": "simple"
+            "value": "(function execute() {\n    /* Return a quoted string.  For example:\n\n       var result;\n       if (vaInputs.first_name == 'Bill') {\n           return gs.getMessage('hi there {0}', [vaInputs.first_name]);\n       } else {\n           return gs.getMessage('how are you {0}', [vaInputs.last_name]);\n       }\n    */\n    return 'The only record that matches your search is: ' + vaInputs.list_employees.getDisplayValue() + '. Is this the employee you want?';\n})()\n",
+            "mode": "script"
           },
           "acknowledgeMsg": {
             "value": "Here are the employee details.",
@@ -89,8 +88,8 @@
             "value": "",
             "mode": "simple"
           },
-          "variableId": "d6242fe695644a68b5fecb4375483452",
-          "id": "9e763933b9984b48a8c59e49a3b570cc",
+          "variableId": "90c564f708be4a9382d6b55a00142d51",
+          "id": "037217365e0b4073abbb5c5e5f98aceb",
           "mode": "glide_record",
           "script": "",
           "noRecordsResponseMsg": {
@@ -99,17 +98,17 @@
           },
           "condition": {
             "mode": "glide_scripted_query",
-            "value": "    (function execute(table) {\n        // Initialize an array for the options\n        var options = [];\n    \n        // Query the table selected in the Choice List Setting\n        var grUser = new GlideRecord(table);\n        grUser.addQuery('name','CONTAINS',vaInputs.employee_name);\n        grUser.query();\n    \n        // Push a value/label pair into the array for each record found by the query\n        // Always use getUniqueValue() for the value\n        // Concatenate field values for the label\n        while(grUser.next()) {\n            options.push({ 'value': grUser.getUniqueValue(),\n            'label': grUser.getValue('name') + \", \" + grUser.getValue('title') + \" - \" + \n            grUser.getDisplayValue('location') });\n        }\n    \n        // Return the array\n        return options;\n    \n    })(table)\n\n    "
+            "value": "(function execute(table) {\n\n    \n    var options = [];\n    var grUser = new GlideRecord(table);\n    grUser.addQuery('name','CONTAINS',vaInputs.employee_name);\n    grUser.query();\n    while(grUser.next()) {\n        options.push({ 'value': grUser.getUniqueValue(), \n        'label': grUser.getValue('name') + \" - \" + grUser.getValue('email') });\n    }\n    return options;\n \n})(table)\n\n"
           },
           "withNluUserInput": false,
           "skipIfFulfilled": false,
           "entity": ""
         },
-        "6a74529530034c2ab624709742623a09": {
-          "id": "6a74529530034c2ab624709742623a09",
+        "452d599b298e4b1ba41de38ad675f63c": {
+          "id": "452d599b298e4b1ba41de38ad675f63c",
           "stepType": "RecordOutput",
           "name": "Show Employee",
-          "variableId": "d6242fe695644a68b5fecb4375483452",
+          "variableId": "90c564f708be4a9382d6b55a00142d51",
           "mode": "variable",
           "tableName": "sys_user",
           "fields": [
@@ -127,13 +126,13 @@
             "value": ""
           }
         },
-        "00be8a4206dd4dd6b79adebe94235a29": {
-          "id": "00be8a4206dd4dd6b79adebe94235a29",
+        "85971ad67201461fb475775e232ba31e": {
+          "id": "85971ad67201461fb475775e232ba31e",
           "stepType": "Decision",
           "name": "Look up another employee?"
         },
-        "6a0fd9f024904b5da144819de3e3a0df": {
-          "id": "6a0fd9f024904b5da144819de3e3a0df",
+        "a2a90db862e1433d9ca86207ebf08af7": {
+          "id": "a2a90db862e1433d9ca86207ebf08af7",
           "stepType": "Prompt",
           "name": "Another lookup",
           "prompt": {
@@ -157,7 +156,7 @@
             "value": "",
             "mode": "simple"
           },
-          "variableId": "4d355cfdfd8d48dd93a2a812b8305091",
+          "variableId": "9a52406eab8a47219b1fdb297d2235f5",
           "withNluUserInput": false,
           "skipIfFulfilled": false,
           "entity": ""
@@ -165,42 +164,42 @@
       },
       "edges": [
         {
-          "id": "2e4381b9d05944c3ae6784108347447c",
+          "id": "9fdb11591fe149bba6174fbf925877a5",
           "edgeType": "Edge",
-          "source": "e21f4d7774f849ddaf1af2370d4cb80a",
-          "target": "f932d029eb0f4996ae98b497ea34cfc5",
+          "source": "2db2fb09c66241798eef0ac5e79a7e59",
+          "target": "9d3a2276effc434d99aaaaa272daeb4c",
           "sourcePort": "",
           "targetPort": ""
         },
         {
-          "id": "75609ae4367d495dad4001da474c039e",
+          "id": "44d91a0a6b404a408704d145e5d29697",
           "edgeType": "Edge",
-          "source": "f932d029eb0f4996ae98b497ea34cfc5",
-          "target": "9e763933b9984b48a8c59e49a3b570cc",
+          "source": "9d3a2276effc434d99aaaaa272daeb4c",
+          "target": "037217365e0b4073abbb5c5e5f98aceb",
           "sourcePort": "",
           "targetPort": ""
         },
         {
-          "id": "af7b84561ce8497c80aa30e779905fb9",
+          "id": "fb0944557b9e4c4bb950d80b4e10df0c",
           "edgeType": "Edge",
-          "source": "9e763933b9984b48a8c59e49a3b570cc",
-          "target": "6a74529530034c2ab624709742623a09",
+          "source": "037217365e0b4073abbb5c5e5f98aceb",
+          "target": "452d599b298e4b1ba41de38ad675f63c",
           "sourcePort": "",
           "targetPort": ""
         },
         {
-          "id": "3c47f8c4fbdd488facd1536744048b95",
+          "id": "ee60d22cb6bf439599564b048f5f0b6e",
           "edgeType": "Edge",
-          "source": "6a74529530034c2ab624709742623a09",
-          "target": "6a0fd9f024904b5da144819de3e3a0df",
+          "source": "452d599b298e4b1ba41de38ad675f63c",
+          "target": "a2a90db862e1433d9ca86207ebf08af7",
           "sourcePort": "",
           "targetPort": ""
         },
         {
-          "id": "c33344613c614256b4096e9b2614d236",
+          "id": "30d5fd5a7972478e9ed4043fec636559",
           "edgeType": "Branch",
-          "source": "00be8a4206dd4dd6b79adebe94235a29",
-          "target": "53ff3c44197e4da89fc11b8d74407b3a",
+          "source": "85971ad67201461fb475775e232ba31e",
+          "target": "5769bae43ffd44529beced531d69f11d",
           "sourcePort": "",
           "targetPort": "",
           "expression": {
@@ -210,18 +209,18 @@
           "label": "No"
         },
         {
-          "id": "8e8fd62c09ed4d8697637df7e4d6690b",
+          "id": "69b9970904e34c64a782a2029046330c",
           "edgeType": "Edge",
-          "source": "6a0fd9f024904b5da144819de3e3a0df",
-          "target": "00be8a4206dd4dd6b79adebe94235a29",
+          "source": "a2a90db862e1433d9ca86207ebf08af7",
+          "target": "85971ad67201461fb475775e232ba31e",
           "sourcePort": "",
           "targetPort": ""
         },
         {
-          "id": "9ceea38c8b254d518c53925c5d2cb6c8",
+          "id": "25ba64ba38ce4ec4ba432532a7fb14cd",
           "edgeType": "Branch",
-          "source": "00be8a4206dd4dd6b79adebe94235a29",
-          "target": "f932d029eb0f4996ae98b497ea34cfc5",
+          "source": "85971ad67201461fb475775e232ba31e",
+          "target": "9d3a2276effc434d99aaaaa272daeb4c",
           "sourcePort": "",
           "targetPort": "",
           "expression": {
@@ -233,52 +232,61 @@
       ]
     }
   },
+  "graph_api_version": "1.0.13",
   "variables": {
-    "3ab5e9c534314dbb9f29b74600358253": {
-      "id": "3ab5e9c534314dbb9f29b74600358253",
+    "a1f0964f028042b79cd72df12058816c": {
+      "id": "a1f0964f028042b79cd72df12058816c",
       "name": "employee_name",
       "label": "Employee Name",
       "varType": "string",
       "category": "vaInputs"
     },
-    "d6242fe695644a68b5fecb4375483452": {
-      "id": "d6242fe695644a68b5fecb4375483452",
+    "90c564f708be4a9382d6b55a00142d51": {
+      "id": "90c564f708be4a9382d6b55a00142d51",
       "name": "list_employees",
       "label": "List Employees",
       "varType": "reference",
       "table": "sys_user",
       "category": "vaInputs"
     },
-    "4d355cfdfd8d48dd93a2a812b8305091": {
-      "id": "4d355cfdfd8d48dd93a2a812b8305091",
+    "9a52406eab8a47219b1fdb297d2235f5": {
+      "id": "9a52406eab8a47219b1fdb297d2235f5",
       "name": "another_lookup",
       "label": "Another Lookup",
       "varType": "boolean",
       "category": "vaInputs"
+    },
+    "ba1eac63c12d44cf8a4eb9ec96a1bb9f": {
+      "category": "vaInputs",
+      "id": "ba1eac63c12d44cf8a4eb9ec96a1bb9f",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
     }
   }
 }</graph>
         <key_phrases>Find Employee,employee directory,view employee details,find user,user directory</key_phrases>
         <live_agent>false</live_agent>
-        <name>Find Employee</name>
+        <name>Find Employee dupe test</name>
         <nlu_intent/>
         <nlu_model/>
         <nlu_provider/>
         <roles/>
         <sys_class_name>sys_cb_topic</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2019-05-02 13:30:09</sys_created_on>
+        <sys_created_on>2019-06-28 16:19:46</sys_created_on>
         <sys_domain>global</sys_domain>
-        <sys_id>2c57bd2fdb0133004ab89c68db961926</sys_id>
-        <sys_mod_count>68</sys_mod_count>
-        <sys_name>Find Employee</sys_name>
+        <sys_id>89c0c086db5a3300ed7290c7db961963</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Find Employee dupe test</sys_name>
         <sys_package display_value="Employee Directory Virtual Agent Conversations" source="x_126321_empdirva">e8a67563db0133004ab89c68db9619a0</sys_package>
         <sys_policy/>
         <sys_scope display_value="Employee Directory Virtual Agent Conversations">e8a67563db0133004ab89c68db9619a0</sys_scope>
-        <sys_update_name>sys_cb_topic_2c57bd2fdb0133004ab89c68db961926</sys_update_name>
+        <sys_update_name>sys_cb_topic_89c0c086db5a3300ed7290c7db961963</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2019-07-01 16:17:15</sys_updated_on>
+        <sys_updated_on>2019-06-28 16:20:06</sys_updated_on>
         <variables/>
     </sys_cb_topic>
-    <sys_variable_value action="delete_multiple" query="document_key=2c57bd2fdb0133004ab89c68db961926"/>
+    <sys_variable_value action="delete_multiple" query="document_key=89c0c086db5a3300ed7290c7db961963"/>
 </record_update>

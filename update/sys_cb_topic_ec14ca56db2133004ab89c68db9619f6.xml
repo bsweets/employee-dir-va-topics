@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
     <sys_cb_topic action="INSERT_OR_UPDATE">
         <applicability/>
+        <category/>
         <connect_queue/>
         <description/>
+        <flexible_conversation_switching>false</flexible_conversation_switching>
         <graph>{
   "goals": {
     "a4933bf568194064b890d5514d6f16e8": {
@@ -371,6 +373,9 @@
         <key_phrases>Find Employee,employee directory,view employee details,find user,user directory</key_phrases>
         <live_agent>false</live_agent>
         <name>Job selection</name>
+        <nlu_intent/>
+        <nlu_model/>
+        <nlu_provider/>
         <roles/>
         <sys_class_name>sys_cb_topic</sys_class_name>
         <sys_created_by>admin</sys_created_by>
